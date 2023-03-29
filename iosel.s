@@ -14,7 +14,7 @@ boot:
 SEI
 CLD
 ; Set bank to call program
-LDA BANK_PROG
+LDA #BANK_PROG
 STA REG_BANK
 ; Clear other IOSTRB
 LDA IOCLR
@@ -32,7 +32,7 @@ STA REG_ADDRL
 STA REG_ADDRM
 STA REG_ADDRH
 ; Set bank to data map
-LDA BANK_MAP
+LDA #BANK_MAP
 STA REG_BANK
 ; Set loop counter to 0
 LDY #0
@@ -139,11 +139,11 @@ restore_bank_end:
 TXA
 ; Subtract data bank index from bank index in accumulator
 SEC
-SBC BANK_DATA
+SBC #BANK_DATA
 ; Move last byte index into Y register
 TAY
 ; Get final byte for bank just restored
-LDA BANK_END
+LDA #BANK_END
 STA REG_BANK
 LDA PTR_CF00,Y
 STA REG_DATA
