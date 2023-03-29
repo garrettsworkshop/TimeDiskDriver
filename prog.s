@@ -219,9 +219,7 @@ LDA #.lobyte(LINE15)
 STA PTR_DST
 LDA #.hibyte(LINE15)
 STA PTR_DST_H
-rrrr:
 JSR blank_line
-JMP rrrr
 
 ; Return to restore image
 RTS
