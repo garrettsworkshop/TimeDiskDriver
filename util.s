@@ -25,4 +25,8 @@ LDA #$CE
 STA PTR_CE00+1
 LDA #$CF
 STA PTR_CF00+1
+; Zero CTAB low pointer
+LDA #$00
+STA PTR_CTAB
+; Return
 RTS
