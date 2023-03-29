@@ -24,6 +24,11 @@ LDA #SLOTNUM_TEXT
 JSR restore_ui_confirm
 
 restore:
+; Set bank to call program
+LDA #BANK_PROG
+STA REG_BANK
+; Clear other IOSTRB
+LDA IOCLR
 ; Call routine to setup CX00 pointers in $90-91, $92-93, ... $9E-$9F
 JSR setup_pointers
 ; Clear Slinky address
