@@ -19,7 +19,7 @@ STA REG_BANK
 ; Clear other IOSTRB
 LDA IOCLR
 ; Load slot number argument
-LDA SLOTNUM_TEXT
+LDA #SLOTNUM_TEXT
 ; Jump to display UI
 JSR restore_ui_confirm
 

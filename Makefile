@@ -1,4 +1,4 @@
-all: bin/TimeDisk.bin
+all: bin/TimeDisk.bin bin/C200.s bin/C800.s
 
 obj:
 	mkdir -p $@
@@ -43,6 +43,18 @@ bin/TimeDisk.bin: bin/TimeDisk_unpadded.bin
 	rm -f $@
 	dd if=/dev/zero of=$@ bs=2048 count=64
 	dd if=bin/TimeDisk_unpadded.bin of=$@ conv=notrunc
+
+bin/C200.bin: bin/iosel.bin
+	dd if=bin/iosel.bin of=$@ bs=256 skip=2
+
+bin/C200.s: bin/C200.bin
+	da65 --start-addr 49664 bin/C200.bin -o $@
+
+bin/C800.bin: bin/iosel.bin
+	dd if=bin/iostrb.bin of=$@ bs=256
+
+bin/C800.s: bin/C800.bin
+	da65 --start-addr 51200 bin/C800.bin -o $@
 
 .PHONY: clean
 clean:
