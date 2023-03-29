@@ -194,7 +194,7 @@ LDA #.hibyte(LINE8)
 STA PTR_DST_H
 JSR copy_line
 
-; Blank LINE10,11,13,14,15 with SRC3)
+; Blank LINE10,11,13,14,15 with SRC3
 LDA #.lobyte(LINE10)
 STA PTR_DST
 LDA #.hibyte(LINE10)
@@ -219,7 +219,9 @@ LDA #.lobyte(LINE15)
 STA PTR_DST
 LDA #.hibyte(LINE15)
 STA PTR_DST_H
+rrrr:
 JSR blank_line
+JMP rrrr
 
 ; Return to restore image
 RTS
