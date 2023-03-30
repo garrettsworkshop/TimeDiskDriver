@@ -11,10 +11,8 @@ bin/shrink: bin shrink/shrink.c
 obj/driver.o: obj driver.s header.s iosel.s
 	ca65 -o $@ driver.s --cpu 6502
 
-bin/TimeDisk_image.bin: rom/TimeDisk_image.2mg rom/partitiontable.bin
-	rm -f $@
-	dd if=rom/partitiontable.bin of=$@
-	dd if=rom/TimeDisk_image.2mg conv=notrunc of=$@ bs=64 skip=1 seek=16
+bin/TimeDisk_image.bin: rom/TimeDisk_image.bin
+	cp rom/TimeDisk_image.bin $@
 
 bin/iosel.bin: bin obj/driver.o driver.cfg
 	rm -f bin/iosel.bin
