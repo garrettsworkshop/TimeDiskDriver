@@ -1,8 +1,8 @@
 ;     0123456789012345678901234567890123456789 
 ;     ________________________________________ 
 ; 00 | -------------------------------------- |   00* W
-; 01 | |         GARRETT'S WORKSHOP         | |   01* W
-; 02 | |      TIMEDISK PRODOS INSTALLER     | |   02* W
+; 01 |           GARRETT'S WORKSHOP           |   01* W
+; 02 |        TIMEDISK PRODOS INSTALLER       |   02* W
 ; 03 | -------------------------------------- |   00  W
 ; 04 |                                        |   B
 ; 05 |                SLOT: N                 |   03* W
@@ -28,8 +28,8 @@
 ;     0123456789012345678901234567890123456789 
 ;     ________________________________________ 
 ; 00 | -------------------------------------- |   00
-; 01 | |         GARRETT'S WORKSHOP         | |   01
-; 02 | |      TIMEDISK PRODOS INSTALLER     | |   02
+; 01 |           GARRETT'S WORKSHOP           |   01
+; 02 |        TIMEDISK PRODOS INSTALLER       |   02
 ; 03 | -------------------------------------- |   00
 ; 04 |                                        |   B
 ; 05 |                SLOT: N                 |   04
@@ -55,8 +55,8 @@
 ;     0123456789012345678901234567890123456789 
 ;     ________________________________________ 
 ; 00 | -------------------------------------- |   00
-; 01 | |         GARRETT'S WORKSHOP         | |   01
-; 02 | |      TIMEDISK PRODOS INSTALLER     | |   02
+; 01 |           GARRETT'S WORKSHOP           |   01
+; 02 |        TIMEDISK PRODOS INSTALLER       |   02
 ; 03 | -------------------------------------- |   00
 ; 04 |                                        |   B
 ; 05 |                SLOT: N                 |   04
@@ -85,9 +85,9 @@
 SRC0:
 .asciiz " -------------------------------------- "
 SRC1:
-.asciiz " |         GARRETT'S WORKSHOP         | "
+.asciiz "           GARRETT'S WORKSHOP           "
 SRC2:
-.asciiz " |      TIMEDISK PRODOS INSTALLER     | "
+.asciiz "        TIMEDISK PRODOS INSTALLER       "
 SRC3:
 .asciiz "                SLOT: N                 "
 SRC4:
@@ -98,7 +98,7 @@ SRC5:
 ; do {
 blank_loop:
 DEY
-LDA #$20 ; $20 is space
+LDA #$A0 ; $A0 is space
 STA (PTR_DST),Y
 TYA
 ; } while (y > 0)
@@ -149,6 +149,7 @@ LDY #40
 copy_line_loop:
 DEY
 LDA (PTR_SRC),Y
+ORA #$80
 STA (PTR_DST),Y
 TYA
 ; } while (y > 0)
