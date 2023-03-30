@@ -103,8 +103,6 @@ INY
 BNE restore_blank_loop
 
 restore_blank_end:
-; Move bank index in X register to A register
-TXA
 ; Pull clobbered chunk index into Y register
 PLA
 TAY
@@ -145,15 +143,14 @@ INY
 BNE restore_bank_loop
 
 restore_bank_end:
-; Pull and re-push bank index
-PLA
-PHA
-BRK
+; Move bank index saved in X register into accumulator
+TXA
 ; Subtract data bank index from bank index in accumulator
 SEC
 SBC #1
 ; Move last byte index into Y register
 TAY
+BRK
 ; Get final byte for bank just restored
 LDA #BANK_END
 STA REG_BANK
