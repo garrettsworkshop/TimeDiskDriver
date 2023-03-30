@@ -76,7 +76,6 @@ TYA
 PHA
 ; Move bank index in X register bank to A to set flags
 TXA
-BRK
 ; If source bank index nonzero, restore from it
 BNE restore_bank
 ; Else source bank index is zero so restore all zeros
@@ -149,6 +148,7 @@ restore_bank_end:
 ; Pull and re-push bank index
 PLA
 PHA
+BRK
 ; Subtract data bank index from bank index in accumulator
 SEC
 SBC #1
