@@ -84,7 +84,7 @@ int main (int argc, char *argv[]) {
     fclose(f_data);
 
     // Write end file, skipping first byte
-    for (int i = packed_bank_start; i < NUM_BANKS; i++) {
+    for (int i = 1; i < NUM_BANKS; i++) {
         fputc(packed[i][2047], f_end);
     }
     fclose(f_end);

@@ -36,9 +36,6 @@ LDA #0
 STA REG_ADDRL
 STA REG_ADDRM
 STA REG_ADDRH
-; Set bank to data map
-LDA #BANK_MAP
-STA REG_BANK
 ; Set loop counter to 0
 LDY #0
 
@@ -62,6 +59,9 @@ BNE restore_loop
 JMP restore_ui_complete
 
 restore_dispatch:
+; Set bank to data map
+LDA #BANK_MAP
+STA REG_BANK
 ; Get even bank index for even destination chunk into accumulator
 LDA (PTR_CTAB),Y
 ; Switch to source bank
@@ -146,7 +146,7 @@ restore_bank_end:
 PLA
 PHA
 ; Subtract data bank index from bank index in accumulator
-SBC #BANK_DATA
+SBC #1
 ; Move last byte index into Y register
 TAY
 ; Get final byte for bank just restored
