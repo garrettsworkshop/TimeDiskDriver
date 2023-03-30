@@ -142,15 +142,11 @@ INY
 BNE restore_bank_loop
 
 restore_bank_end:
-; Move bank index in X register to A register
-TXA
+; Pull and re-push bank index
+PLA
+PHA
 ; Subtract data bank index from bank index in accumulator
-PHA
-PLA
-SEC
 SBC #BANK_DATA
-PHA
-PLA
 ; Move last byte index into Y register
 TAY
 ; Get final byte for bank just restored
