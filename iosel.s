@@ -150,7 +150,6 @@ SEC
 SBC #1
 ; Move last byte index into Y register
 TAY
-BRK
 ; Get final byte for bank just restored
 LDA #BANK_END
 STA REG_BANK
