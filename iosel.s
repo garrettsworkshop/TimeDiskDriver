@@ -71,6 +71,8 @@ TAX
 ; Push Y register to save chunk index
 TYA
 PHA
+; Move bank index in X register bank to A to set flags
+TXA
 ; If source bank index nonzero, restore from it
 BNE restore_bank
 ; Else source bank index is zero so restore all zeros
@@ -132,7 +134,7 @@ STA REG_DATA
 ; if (Y == 0xFF) break;
 CPY #$FF
 BEQ restore_bank_end
-; Else copy final byte
+; Else copy final byte of 8
 LDA (PTR_CF00),Y
 STA REG_DATA
 ; } while (++Y != 0);
