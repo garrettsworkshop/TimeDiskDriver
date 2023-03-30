@@ -63,7 +63,7 @@ JMP restore_ui_complete
 
 restore_dispatch:
 ; Get even bank index for even destination chunk into accumulator
-LDA PTR_CTAB,Y
+LDA (PTR_CTAB),Y
 ; Switch to source bank
 STA REG_BANK
 ; Transfer bank index from accumulator to X
@@ -115,25 +115,25 @@ LDY #0
 ; do {
 restore_bank_loop:
 ; Copy 7 bytes
-LDA PTR_C800,Y
+LDA (PTR_C800),Y
 STA REG_DATA
-LDA PTR_C900,Y
+LDA (PTR_C900),Y
 STA REG_DATA
-LDA PTR_CA00,Y
+LDA (PTR_CA00),Y
 STA REG_DATA
-LDA PTR_CB00,Y
+LDA (PTR_CB00),Y
 STA REG_DATA
-LDA PTR_CC00,Y
+LDA (PTR_CC00),Y
 STA REG_DATA
-LDA PTR_CD00,Y
+LDA (PTR_CD00),Y
 STA REG_DATA
-LDA PTR_CE00,Y
+LDA (PTR_CE00),Y
 STA REG_DATA
 ; if (Y == 0xFF) break;
 CPY #$FF
 BEQ restore_bank_end
 ; Else copy final byte
-LDA PTR_CF00,Y
+LDA (PTR_CF00),Y
 STA REG_DATA
 ; } while (++Y != 0);
 INY
@@ -150,7 +150,7 @@ TAY
 ; Get final byte for bank just restored
 LDA #BANK_END
 STA REG_BANK
-LDA PTR_CF00,Y
+LDA (PTR_CF00),Y
 STA REG_DATA
 ; Pull clobbered chunk index into Y register
 PLA
