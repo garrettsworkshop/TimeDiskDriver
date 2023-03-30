@@ -1,2 +1,2 @@
-.asciiz "Garrett's Workshop GW4206"
-.asciiz "Recovery Version 1.0"
+.asciiz "Garrett's Workshop GW4206A"
+.asciiz "Image Restore 1.0"

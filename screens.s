@@ -7,7 +7,7 @@
 ; 04 |                                        |   B
 ; 05 |                SLOT: N                 |   03* W
 ; 06 |                                        |   B
-; 07 | PRESS Y TO INSTALL PRODOS IMAGE ON     |   04* W
+; 07 | PRESS [Y] TO INSTALL PRODOS IMAGE ON   |   04* W
 ; 08 | TIMEDISK IN SLOT N.                    |   05* W
 ; 09 |                                        |   B
 ; 10 | WARNING! INSTALLING WILL ERASE         |   06* W
@@ -91,7 +91,7 @@ SRC2:
 SRC3:
 .asciiz "                SLOT: N                 "
 SRC4:
-.asciiz " PRESS Y TO INSTALL PRODOS IMAGE ON     "
+.asciiz " PRESS [Y] TO INSTALL PRODOS IMAGE ON   "
 SRC5:
 .asciiz " TIMEDISK IN SLOT N.                    "
 
