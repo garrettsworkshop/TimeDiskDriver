@@ -160,10 +160,8 @@ PLA
 LDX #22
 STA LINE5,X
 ORA #$80
-LDX #18
+LDX #16
 STA LINE8,X
-LDX #30
-STA LINE11,X
 
 ; Loop until Y pressed
 restore_loop:
