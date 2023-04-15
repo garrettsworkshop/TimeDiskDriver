@@ -1,5 +1,7 @@
 bin/*
-!bin/TimeDisk.bin
+!bin/TimeDisk_test512.bin
+!bin/TimeDisk_128.bin
+!bin/TimeDisk_512.bin
 obj/*
 shrink/.DS_Store
 rom/.DS_Store
